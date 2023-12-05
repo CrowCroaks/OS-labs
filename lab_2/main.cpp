@@ -36,7 +36,7 @@ void sigBlocking(sigset_t origMask){
     sigprocmask(SIG_BLOCK, &blockedMask, &origMask);
 }
 
-int createServ(int port){
+int servCreation(int port){
     int servfd = socket(AF_INET, SOCK_STREAM, 0);
     if (servfd == -1){
         cerr << "Socket creation failed" << endl;
@@ -64,7 +64,7 @@ int createServ(int port){
 
 int main(){
 
-    int servfd = createServ(5005);
+    int servfd = servCreation(5005);
     cout << "Starting..." << endl;
 
     client clients[MAX_CLIENTS] = {};
